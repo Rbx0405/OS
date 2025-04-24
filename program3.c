@@ -4,17 +4,17 @@
 
 int main() {
     pid_t pid, mypid, myppid;
-    
+
     mypid = getpid();
     printf("Before fork, process is %d\n", mypid);
-    
+
     pid = fork();
-    
+
     if (pid < 0) {
         perror("fork() failure");
         return 1;
     }
-    
+
     if (pid == 0) {
         // Child process
         printf("This is child process.\n");
@@ -30,7 +30,6 @@ int main() {
         printf("Process id is %d and PPID is %d\n", mypid, myppid);
         printf("Newly created process id or child pid is %d\n", pid);
     }
-    
+
     return 0;
 }
- 
